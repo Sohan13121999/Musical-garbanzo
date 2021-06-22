@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+#include<vector>
+#include<algorithm>
+#include<map>
+using namespace std;
+int main() {
+
+	string str;
+    cin>>str;
+    unordered_map<char,long long int>mp;
+    for(long long int i=0;i<str.length();i++)
+    {
+        mp[str[i]]++;
+    }
+    long long int flag=0;
+   long long  int count=0;
+   long long  int flag2=0;
+    long long int j;
+    vector<long long int>v;
+    for(auto it=mp.begin();it!=mp.end();it++)
+    {
+        long long int a=it->second;
+        v.push_back(a);
+        
+    }
+    sort(v.begin(),v.end());
+    
+    for(long long int i=0;i<v.size()-1;i++)
+    {
+        if(v[i]!=v[i+1])
+        {
+            count++;
+        }
+        
+    }
+ if(count==0)
+        cout<<"YES"<<endl;
+    if(count==1)
+    {
+        long long int a=v[v.size()-1]-v[0];
+        if(a==1)
+            cout<<"YES"<<endl;
+        if(a>1)
+            cout<<"NO"<<endl;
+    }
+    if(count>2)
+        cout<<"NO"<<endl;
+    
+}
